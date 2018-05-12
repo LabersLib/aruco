@@ -1,0 +1,13 @@
+{
+    "repo": "DacnerDeps/aruco",
+    "name": "aruco",
+    "workspace": "lib",
+    "build": [
+        "mkdir build",
+        "cd build",
+        "cmake ..",
+        "make",
+        "sudo make install"],
+    "deps": {}
+}
+
