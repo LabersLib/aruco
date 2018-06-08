@@ -3,6 +3,7 @@
 # ----------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.0)
 project(aruco VERSION "3.0.9" LANGUAGES CXX)
+
 set(PROJECT_SOVERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11) # C++11...
@@ -14,6 +15,17 @@ include(cmake/options.cmake)
 include(cmake/findDependencies.cmake)
 include(cmake/compilerOptions.cmake)
 
+# catkin support
+find_package(catkin REQUIRED)
+catkin_package(
+  INCLUDE_DIRS src
+  LIBRARIES aruco
+#  CATKIN_DEPENDS other_catkin_pkg
+#  DEPENDS system_lib
+)
+
+OPTION(BUILD_UTILS  "Set to OFF to not compile utils " OFF)
+OPTION(BUILD_TESTS  "Set to OFF to not compile tests " OFF)
 
 add_definitions(-DUSE_SVM_LABELER)
 add_subdirectory(src)
