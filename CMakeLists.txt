@@ -23,7 +23,7 @@ catkin_package(
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
-
+include_directories(src)
 OPTION(BUILD_UTILS  "Set to OFF to not compile utils " OFF)
 OPTION(BUILD_TESTS  "Set to OFF to not compile tests " OFF)
 
